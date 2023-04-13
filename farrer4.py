@@ -20,7 +20,11 @@ def main():
 	nome = str()
 	lucro_menor = list()
 	lucro_medio = list()
-	lucro_maior
+	lucro_maior = list()
+
+	lucro_menor = []
+	lucro_medio = []
+	lucro_maior = []
 
 	nome = input()
 	pre_compr = float(input())
@@ -34,8 +38,20 @@ def main():
 		lucro = (lucro_liq*100)/pre_compr
 
 		if lucro < 10:
-			
+			lucro_menor.append(nome)
+			lucro_menor.append(lucro)
+		elif 10 <= lucro <= 20:
+			lucro_medio.append(nome)
+			lucro_medio.append(lucro)
+		else:
+			lucro_maior.append(nome)
+			lucro_maior.append(lucro) 
+		nome = input()
+		pre_compr = float(input())
+		pre_vend = float(input())
 
+	print(f"Valor total de compra: {total_compr}")
+	print(f"Valor total de venda: {total_vend}")
 
 
 
