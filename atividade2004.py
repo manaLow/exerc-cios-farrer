@@ -2,17 +2,24 @@
 def main():
     
     # Declaração de variáveis
-    n = int(input())
-    soma = int()
-    numero = int()
+    num = float()
+    deno = float()
+    val_abs = float()
+    soma = float()
+    termo = float()
+    # Inicialização de variáveis
+    soma = 0
+    num = 4
+    deno = 1
+    termo = num/deno
     # Processamento
-    while (n != 0):
-        soma = 0
-        for numero in range(1, n+1):
-            soma += numero
-        print(f"SOMA={soma}") # Output
+    while abs(termo) >= 0.0001:
+        soma += termo
+        num = num*(-1)
+        deno += 2
+        termo = num/deno
+        print("soma=",termo,"=",soma) #Saída
 
-        n = int(input())
         
 if __name__ == "__main__":
     main()
