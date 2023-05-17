@@ -5,8 +5,7 @@ def main():
     n = int()
     id_turma = str()
     quant_matr = int()
-    matric_al = str()
-    frequencia = str()
+    aluno = str()
     porcent_ausen = float()
     ausencias = int()
     maior_por = float()
@@ -25,11 +24,13 @@ def main():
     for turma in range(1,n+1):
         id_turma = str(input())
         quant_matr = int(input())
-        for aluno in range(1,quant_matr+1,2):
+        for aluno in range(1,quant_matr+1):
+            matr_al = str(input())
             frequencia = str(input())
             if frequencia == "A":
                 ausencias += 1
         porcent_ausen = (ausencias*100)/quant_matr
+        ausencias = 0
 
         if porcent_ausen > maior_por:
             maior_por = porcent_ausen
@@ -44,7 +45,7 @@ def main():
 
         print(f"TURMA={id_turma} AUSENCIA={porcent_ausen:.2f}%")
     print(f"TURMA COM MAIOR PORCENTAGEM DE AUSENCIA={turma_maior} AUSENCIA={maior_por:.2f}%")
-    print(f"TURMA COM MAIOR PORCENTAGEM DE AUSENCIA={turma_menor} AUSENCIA={menor_por:.2f}%")
+    print(f"TURMA COM MENOR PORCENTAGEM DE AUSENCIA={turma_menor} AUSENCIA={menor_por:.2f}%")
     print(f"{contagem} TURMAS COM PORCENTAGEM DE AUSENCIA SUPERIOR A 20%")
 
 

@@ -1,42 +1,99 @@
-"""
-Numa fábrica trabalham homens e mulheres divididos em três classes:
-A – os que fazem até 30 peças por mês;
-B – os que fazem de 31 a 35 peças por mês;
-C – os que fazem mais de 35 peças por mês;
-A classe A recebe salário-mínimo. A classe B recebe salário-mínimo e mais 3% do salário
-mínimo por peça, acima das 30 iniciais. A classe C recebe salário-mínimo e mais 5% do salário
-mínimo por peça acima das 30 iniciais.
-Fazer um algoritmo que:
-a) leia várias linhas, contendo cada uma:
-- o número do operário;
-- o número de peças fabricadas por mês;
-- o sexo do operário;
-b) calcule e escreva
-- o salário de cada operário;
-- o total da folha mensal de pagamento da fábrica;
-- o número total de peças fabricadas por mês;
-- a média de peças fabricadas pelos homens em cada classe;
-- a média de peças fabricadas pelas mulheres em cada classe;
-- o número do operário ou operária de maior salário (não existe empate).
-Observação: A última linha, que servirá de flag, terá o número do operário igual a zero
-
-maiorsal = -1
-leia(num do op)
-	enquanto numop!=0 faça:
-		leia(quantd. de peças)
-		leia(sexo)
-		calcular o salario
-		escreva (nop,salario)
-		se salario > maiorsal:
-			maiorsal = salario
-			nopmaiorsal = nop
-"""
-
+# Manuely Meireles Lemos
 def main():
-    
-	# Variáveis
-	pass
 
+	# Variáveis
+	totalpeca = int()
+	pagfab = float()
+	salario = float()
+	numop = int()
+	pecaop = int()
+	sexo = str()
+	medpecas_ha = float()
+	medpecas_hb = float()
+	medpecas_hc = float()
+	medpecas_ma = float()
+	medpecas_mb = float()
+	medpecas_mc = float()
+	maiorsal = float()
+	maiorsalop = int()
+	contam = float()
+	contbm = float()
+	contcm = float()
+	contah = float()
+	contbh = float()
+	contch = float()
+        
+	# Inicio de variáveis
+	salario = 1300
+	maiorsal = -1
+	contam = 0
+	contbm = 0
+	contcm = 0
+	contah = 0
+	contbh = 0
+	contch = 0
+
+	# Entrada de dados
+	numop = int(input())
+	
+	# Processamento
+	while numop != 0:
+		pecaop = int(input())
+		sexo = str(input())
+		if pecaop <= 30: # Cálculo classe a
+			salario = 1300
+			if sexo == "F": # mulheres
+				contam += 1
+				medpecas_ma += pecaop
+			else:
+				contah += 1 # homens
+				medpecas_ha += pecaop
+			totalpeca += pecaop
+			pagfab += salario
+			print(f"Operário {numop} - SALÁRIO = {salario}")
+		elif pecaop > 30 and pecaop <= 35:
+			for _ in range(31,pecaop):
+					salario = salario + (1300*0.03)
+			if sexo == "F": # mulheres
+				contbm += 1
+				medpecas_mb += pecaop
+			else:
+				contbh += 1 # homens
+				medpecas_hb += pecaop
+			totalpeca += pecaop
+			pagfab += salario
+			print(f"Operário {numop} - SALÁRIO = {salario}")
+		else:
+			for _ in range(31,pecaop):
+				salario = salario + (1300*0.05)
+			if sexo == "F": # mulheres
+				contcm += 1
+				medpecas_mc += pecaop
+			else:
+				contch += 1 # homens
+				medpecas_hc += pecaop
+			totalpeca += pecaop
+			pagfab += salario
+			print(f"Operário {numop} - SALÁRIO = {salario}")
+
+		if salario > maiorsal:
+			maiorsal = salario
+			maiorsalop = numop
+
+		numop = int(input())
+
+	medpecas_ha = (medpecas_ha/contah)
+	medpecas_hb = (medpecas_hb/contbh)
+	medpecas_hc = (medpecas_hc/contch)
+	medpecas_ma = (medpecas_ma/contam)
+	medpecas_mb = (medpecas_mb/contbm)
+	medpecas_mc = (medpecas_mc/contcm)
+
+	print(f"Folha de pagamento total da fábrica = {pagfab} \nTotal peças/mês = {totalpeca}")
+	print(f"\nMédia de peças produzidas por homens e mulheres dividido por classe:")
+	print(f"Homens:\nCLASSE A = {medpecas_ha}\nCLASSE B = {medpecas_hb}\nCLASSE C = {medpecas_hc}")
+	print(f"Mulheres:\nCLASSE A = {medpecas_ma}\nCLASSE B = {medpecas_mb}\nCLASSE C = {medpecas_mc}")
+	print(f"\nOperário com maior salário: \n OPERÁRIO {maiorsalop} - SALÁRIO = {maiorsal}")
 
 
 
