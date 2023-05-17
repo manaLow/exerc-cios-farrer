@@ -22,9 +22,12 @@ def main():
 	contah = float()
 	contbh = float()
 	contch = float()
+
+	#Constante
+	SAL_MIN = 1320
         
 	# Inicio de variáveis
-	salario = 1300
+	salario = SAL_MIN
 	maiorsal = -1
 	contam = 0
 	contbm = 0
@@ -40,8 +43,9 @@ def main():
 	while numop != 0:
 		pecaop = int(input())
 		sexo = str(input())
+
 		if pecaop <= 30: # Cálculo classe a
-			salario = 1300
+			salario = SAL_MIN
 			if sexo == "F": # mulheres
 				contam += 1
 				medpecas_ma += pecaop
@@ -50,10 +54,10 @@ def main():
 				medpecas_ha += pecaop
 			totalpeca += pecaop
 			pagfab += salario
-			print(f"Operário {numop} - SALÁRIO = {salario}")
-		elif pecaop > 30 and pecaop <= 35:
-			for _ in range(31,pecaop):
-					salario = salario + (1300*0.03)
+			print(f"Operário {numop} - SALÁRIO = {salario:.2f}")
+
+		elif pecaop >= 30 and pecaop <= 35:
+			salario = SAL_MIN  + (SAL_MIN*0.03*(pecaop-30))
 			if sexo == "F": # mulheres
 				contbm += 1
 				medpecas_mb += pecaop
@@ -62,10 +66,10 @@ def main():
 				medpecas_hb += pecaop
 			totalpeca += pecaop
 			pagfab += salario
-			print(f"Operário {numop} - SALÁRIO = {salario}")
+			print(f"Operário {numop} - SALÁRIO = {salario:.2f}")
+
 		else:
-			for _ in range(31,pecaop):
-				salario = salario + (1300*0.05)
+			salario = SAL_MIN + (SAL_MIN*0.05*(pecaop-30))
 			if sexo == "F": # mulheres
 				contcm += 1
 				medpecas_mc += pecaop
@@ -74,7 +78,7 @@ def main():
 				medpecas_hc += pecaop
 			totalpeca += pecaop
 			pagfab += salario
-			print(f"Operário {numop} - SALÁRIO = {salario}")
+			print(f"Operário {numop} - SALÁRIO = {salario:.2f}")
 
 		if salario > maiorsal: # maior salário
 			maiorsal = salario
@@ -92,11 +96,11 @@ def main():
 	medpecas_mc = (medpecas_mc/contcm)
 
 	# Saída
-	print(f"Folha de pagamento total da fábrica = {pagfab} \nTotal peças/mês = {totalpeca}")
+	print(f"Folha de pagamento total da fábrica = {pagfab:.2f} \nTotal peças/mês = {totalpeca}")
 	print(f"\nMédia de peças produzidas por homens e mulheres dividido por classe:")
-	print(f"Homens:\nCLASSE A = {medpecas_ha}\nCLASSE B = {medpecas_hb}\nCLASSE C = {medpecas_hc}")
-	print(f"Mulheres:\nCLASSE A = {medpecas_ma}\nCLASSE B = {medpecas_mb}\nCLASSE C = {medpecas_mc}")
-	print(f"\nOperário com maior salário: \n OPERÁRIO {maiorsalop} - SALÁRIO = {maiorsal}")
+	print(f"Homens:\nCLASSE A = {medpecas_ha:.2f}\nCLASSE B = {medpecas_hb:.2f}\nCLASSE C = {medpecas_hc:.2f}")
+	print(f"Mulheres:\nCLASSE A = {medpecas_ma:.2f}\nCLASSE B = {medpecas_mb:.2f}\nCLASSE C = {medpecas_mc:.2f}")
+	print(f"\nOperário com maior salário: \n OPERÁRIO {maiorsalop} - SALÁRIO = {maiorsal:.2f}")
 
 
 if __name__ == "__main__":

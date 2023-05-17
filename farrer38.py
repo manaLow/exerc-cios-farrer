@@ -12,25 +12,30 @@ def main():
 	exato = float()
 	dif = float()
 	i = float()
+	qtd = int()
 
-	# Entrada
-	x = float(input())
+	qtd = int(input())
 
-	deno = 1
-	i = 1
-	expo = 0 
-	exato = math.exp(x)
-	valor = 1
-	dif = abs(exato - valor)
+	for num in range(qtd):
+		x = float(input())
 
-	while dif > 0.0001:
-		nume = x**i
-		deno = deno*i
-		valor = valor + (nume/deno)
-		i += 1
+		deno = 1
+		i = 1
+		expo = 0 
+		exato = math.exp(x)
+		valor = 1
 		dif = abs(exato - valor)
-		
-	print(valor,i)
+
+
+
+		while dif > 0.0001:
+			nume = x**i
+			deno = deno*i
+			valor = valor + (nume/deno)
+			i += 1
+			dif = abs(exato - valor)
+			
+		print(f"X={x:.6f} EXP_FUNCAO({x:.6f})={exato:.6f} EXP_SERIE({x:.6f})={valor:.6f}")
 
 
 if __name__ == "__main__":
