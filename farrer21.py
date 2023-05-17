@@ -76,12 +76,14 @@ def main():
 			pagfab += salario
 			print(f"Operário {numop} - SALÁRIO = {salario}")
 
-		if salario > maiorsal:
+		if salario > maiorsal: # maior salário
 			maiorsal = salario
 			maiorsalop = numop
 
-		numop = int(input())
+		numop = int(input()) # próximo operário
 
+
+	# Cálculo média das classes
 	medpecas_ha = (medpecas_ha/contah)
 	medpecas_hb = (medpecas_hb/contbh)
 	medpecas_hc = (medpecas_hc/contch)
@@ -89,12 +91,12 @@ def main():
 	medpecas_mb = (medpecas_mb/contbm)
 	medpecas_mc = (medpecas_mc/contcm)
 
+	# Saída
 	print(f"Folha de pagamento total da fábrica = {pagfab} \nTotal peças/mês = {totalpeca}")
 	print(f"\nMédia de peças produzidas por homens e mulheres dividido por classe:")
 	print(f"Homens:\nCLASSE A = {medpecas_ha}\nCLASSE B = {medpecas_hb}\nCLASSE C = {medpecas_hc}")
 	print(f"Mulheres:\nCLASSE A = {medpecas_ma}\nCLASSE B = {medpecas_mb}\nCLASSE C = {medpecas_mc}")
 	print(f"\nOperário com maior salário: \n OPERÁRIO {maiorsalop} - SALÁRIO = {maiorsal}")
-
 
 
 if __name__ == "__main__":
