@@ -14,19 +14,19 @@ def main():
 	i = float()
 	qtd = int()
 
+	# Entrada de dados
 	qtd = int(input())
 
+	# Processamento
 	for num in range(qtd):
-		x = float(input())
 
+		x = float(input())
 		deno = 1
 		i = 1
 		expo = 0 
 		exato = math.exp(x)
 		valor = 1
 		dif = abs(exato - valor)
-
-
 
 		while dif > 0.0001:
 			nume = x**i
@@ -35,6 +35,7 @@ def main():
 			i += 1
 			dif = abs(exato - valor)
 			
+		# Saída
 		print(f"X={x:.6f} EXP_FUNCAO({x:.6f})={exato:.6f} EXP_SERIE({x:.6f})={valor:.6f}")
 
 
