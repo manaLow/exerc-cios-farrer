@@ -14,6 +14,8 @@ def main():
     for x in texto:
         if x == "r" or x == "R":
             qtd_r += 1
+        
+    print(f"Quantidade de r's = {qtd_r}")
 
 if __name__ == "__main__":
     main()
