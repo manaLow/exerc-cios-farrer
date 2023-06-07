@@ -1,4 +1,6 @@
 # Manuely Meireles Lemos
+import mod12
+
 def main():
     # Declaração de variáveis
     a = float()
@@ -22,6 +24,7 @@ def main():
     percent = float()
     percetri = float
     sp = float()
+    tipotriang = str()
 
     # Inicio variáveis
     maiorare = -1
@@ -34,26 +37,25 @@ def main():
     b = float(input())
     c = float(input())
 
+    triang = mod12.checar_tr(a,b,c)
+
     # Processamento
     if (a != 0 and b != 0 and c != 0):
         while not(a == 0 and b == 0 and c == 0):
-            if a<b+c and b<a+c and c<a+b: # Checar se é triângulo
-                peri = a + b + c
-                sp = peri/2
-                area = (sp*(sp-a)*(sp-b)*(sp-c))**(1/2)
-                if a==b and b==c: # Checar se todos os lados são iguais
+            if triang: # Checar se é triângulo
+                peri, sp, area = mod12.periare(a,b,c)
+                tipotriang = mod12.tipo_tr(a,b,c)
+                if tipotriang == "EQUILATERO": 
                     medper_eqi += peri
                     cont_eqi += 1
-                    print(f"AREA = {area:.2f} PERIMETRO = {peri:.2f} TIPO = EQUILATERO")
                 else:
-                    if a==b or c==b or a==c: # Se ao menos 2 lados são iguais
+                    if tipotriang == "ISOSCELES": 
                         medper_iso += peri
-                        cont_iso += 1
-                        print(f"AREA = {area:.2f} PERIMETRO = {peri:.2f} TIPO = ISOSCELES") 
+                        cont_iso += 1 
                     else:
                         medper_esc += peri
                         cont_esc += 1
-                        print(f"AREA = {area:.2f} PERIMETRO = {peri:.2f} TIPO = ESCALENO") 
+                print(f"AREA = {area:.2f} PERIMETRO = {peri:.2f} TIPO = {tipotriang}") 
                 
                 if area > maiorare:
                     maiorare = area
