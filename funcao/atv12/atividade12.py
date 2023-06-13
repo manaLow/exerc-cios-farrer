@@ -37,14 +37,14 @@ def main():
     b = float(input())
     c = float(input())
 
-    triang = mod12.checar_tr(a,b,c)
+    triang = mod17.checar_tr(a,b,c)
 
     # Processamento
     if (a != 0 and b != 0 and c != 0):
         while not(a == 0 and b == 0 and c == 0):
             if triang: # Checar se é triângulo
-                peri, sp, area = mod12.periare(a,b,c)
-                tipotriang = mod12.tipo_tr(a,b,c)
+                peri, area, sp = mod17.periare(a,b,c)
+                tipotriang = mod17.tipo_tr(a,b,c)
                 if tipotriang == "EQUILATERO": 
                     medper_eqi += peri
                     cont_eqi += 1

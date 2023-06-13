@@ -11,9 +11,11 @@ def main():
     texto = str(input())
 
     # Processamento
-    for x in texto:
-        if x == "r" or x == "R":
-            qtd_r += 1
+    while texto != "":
+        for x in texto:
+            if x == "r" or x == "R":
+                qtd_r += 1
+        texto = str(input())
         
     print(f"Quantidade de r's = {qtd_r}")
 

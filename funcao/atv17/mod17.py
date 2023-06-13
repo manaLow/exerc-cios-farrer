@@ -19,5 +19,5 @@ def periare(a:float,b:float,c:float)->tuple:
    sp = peri/2
    area = (sp*(sp-a)*(sp-b)*(sp-c))**(1/2)
 
-   return peri,sp,area
+   return peri,area,sp
 
